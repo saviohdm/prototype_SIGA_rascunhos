@@ -10,21 +10,11 @@ This repository contains HTML prototypes for SIGA (Sistema Integrado de Gestão 
 
 The repository contains two main HTML prototype files:
 
-- **Rascunho.html**: Full AngularJS-based draft management interface extracted from the production SIGA system. Shows the complete application structure with navigation, modals, and workflow components.
 - **caixa_de_entrada.html**: Standalone prototype for the inbox/received processes interface. Implements a modern, responsive design with CSS Grid and clean UI components.
 
 Supporting files include screenshot references (PNG images) that document the UI design requirements.
 
 ## Architecture & Technology Stack
-
-### Rascunho.html (Production Template)
-- **Framework**: AngularJS 1.x (`ng-app="boipeba"`)
-- **UI Library**: Bootstrap 3.x with custom navbar components
-- **Rich Text**: CKEditor for document editing
-- **Key Controllers**:
-  - `boipebaController`: Main application controller
-  - `recebidosCtrl`: Manages draft processes and inbox functionality
-- **Bundled Scripts**: jQuery, jQuery Validation, Angular, Bootstrap, custom controllers
 
 ### caixa_de_entrada.html (Prototype)
 - **Pure HTML/CSS**: No framework dependencies
