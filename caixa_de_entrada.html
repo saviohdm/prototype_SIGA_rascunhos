@@ -332,6 +332,147 @@
       margin:18px 0 0;
     }
 
+    /* Expanded item styles */
+    .item-wrapper{
+      margin:10px 0;
+    }
+    .item-wrapper .item{
+      margin:0;
+      cursor:pointer;
+      transition: border-radius 0.15s;
+    }
+    .item-wrapper.expanded .item{
+      border-radius:3px 3px 0 0;
+      border-bottom:none;
+    }
+    .item-details{
+      display:none;
+      background:#fff;
+      border:1px solid var(--row-border);
+      border-top:none;
+      border-radius:0 0 3px 3px;
+      padding:16px;
+    }
+    .item-wrapper.expanded .item-details{
+      display:block;
+    }
+
+    /* Details header with actions */
+    .details-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      margin-bottom:14px;
+      padding-bottom:14px;
+      border-bottom:1px solid #e0e0e0;
+    }
+    .details-meta{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:8px 40px;
+      flex:1;
+    }
+    .meta-item{
+      font-size:13px;
+    }
+    .meta-item .label{
+      font-weight:600;
+      color:#555;
+    }
+    .meta-item .value{
+      color:#2b2b2b;
+    }
+
+    /* Action buttons */
+    .btn-actions{
+      border:1px solid #1c5c8d;
+      background:linear-gradient(#2f7fc2,#1f5f95);
+      color:#fff;
+      font-weight:600;
+      font-size:13px;
+      border-radius:4px;
+      height:30px;
+      padding:0 12px;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      margin-left:20px;
+      flex-shrink:0;
+    }
+    .btn-actions .caret{
+      margin-left:4px;
+    }
+
+    /* History section */
+    .history-section{
+      margin-top:10px;
+    }
+    .history-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:10px;
+    }
+    .history-header h4{
+      margin:0;
+      font-size:14px;
+      font-weight:600;
+      color:#333;
+    }
+    .btn-movimentar{
+      border:1px solid #1c5c8d;
+      background:linear-gradient(#2f7fc2,#1f5f95);
+      color:#fff;
+      font-weight:600;
+      font-size:13px;
+      border-radius:4px;
+      height:30px;
+      padding:0 14px;
+      cursor:pointer;
+    }
+
+    /* History table */
+    .history-table{
+      width:100%;
+      border-collapse:collapse;
+      font-size:13px;
+    }
+    .history-table th{
+      text-align:left;
+      padding:8px 10px;
+      background:#f5f5f5;
+      border:1px solid #ddd;
+      font-weight:600;
+      color:#444;
+    }
+    .history-table td{
+      padding:8px 10px;
+      border:1px solid #ddd;
+      vertical-align:middle;
+    }
+    .history-table tr:hover td{
+      background:#fafafa;
+    }
+    .history-table a{
+      color:#2b78b8;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:4px;
+    }
+    .history-table a:hover{
+      text-decoration:underline;
+    }
+    .link-icon{
+      font-size:11px;
+    }
+
+    /* Reservado tag variations */
+    .tag.reservado-red{
+      background:#c0392b;
+    }
+
     /* Small responsiveness */
     @media (max-width: 980px){
       .wrap{ width:min(1100px, calc(100% - 24px)); }
@@ -426,55 +567,327 @@
       </div>
 
       <div class="items">
-        <div class="item">
-          <input class="ck" type="checkbox" />
-          <div class="icons">
-            <span class="tri" aria-hidden="true"></span>
-            <span class="days">(1 dia) | (1 dias)</span>
+        <!-- Item 1 - Expandido -->
+        <div class="item-wrapper expanded">
+          <div class="item">
+            <input class="ck" type="checkbox" onclick="event.stopPropagation()" />
+            <div class="icons">
+              <span class="tri" aria-hidden="true"></span>
+              <span class="days">(1 dia) | (1 dias)</span>
+            </div>
+            <div class="desc">
+              <span class="muted">92205 / 2026 : Relações com Conselho Nacional do Ministério Público - CNMP</span>
+              - ÂNGELO FABIANO FARIAS DA COSTA - Corregedor Nacional, PAULO MARCELO DE SANTANA COSTA - Requerido(a)
+            </div>
+            <button class="btn-actions" type="button" onclick="event.stopPropagation()">
+              Ações <span class="caret"></span>
+            </button>
           </div>
-          <div class="desc">
-            <span class="muted">92205 / 2026 : Relações com Conselho Nacional do Ministério Público - CNMP</span>
-            - ÂNGELO FABIANO FARIAS DA COSTA - Corregedor Nacional, PAULO MARCELO DE SANTANA COSTA - Requerido(a)
+          <div class="item-details">
+            <div class="details-header">
+              <div class="details-meta">
+                <div class="meta-item">
+                  <span class="label">Número:</span>
+                  <span class="value">92205 / 2026</span>
+                </div>
+                <div class="meta-item">
+                  <span class="label">Atribuído Para:</span>
+                  <span class="value">SAVIO HENRIQUE DAMASCENO MOREIRA</span>
+                </div>
+                <div class="meta-item">
+                  <span class="label">Classe:</span>
+                  <span class="value">Procedimento de Gestão Administrativa</span>
+                </div>
+                <div class="meta-item">
+                  <span class="label">Assunto:</span>
+                  <span class="value">Relações com Conselho Nacional do Ministério Público - CNMP</span>
+                </div>
+                <div class="meta-item">
+                  <span class="label">Último Movimento:</span>
+                  <span class="value">Encaminhamento a Órgão Interno</span>
+                </div>
+                <div class="meta-item">
+                  <span class="label">Modificado Em:</span>
+                  <span class="value">03/02/2026 18:36:37</span>
+                </div>
+              </div>
+            </div>
+            <div class="history-section">
+              <div class="history-header">
+                <h4>Histórico:</h4>
+                <button class="btn-movimentar" type="button">Movimentar ▶</button>
+              </div>
+              <table class="history-table">
+                <thead>
+                  <tr>
+                    <th>Movimentos</th>
+                    <th>Data/Hora</th>
+                    <th>Autor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a href="#">🔗 Despacho Administrativo</a></td>
+                    <td>03/02/2026 18:36:37</td>
+                    <td>PAULO CESAR DE AZEVEDO</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">🔗 Comunicação Interna</a></td>
+                    <td>03/02/2026 10:47:36</td>
+                    <td>ELIEZER SANTOS SANTANA</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">🔗 Autuação</a></td>
+                    <td>03/02/2026 10:46:57</td>
+                    <td>ELIEZER SANTOS SANTANA</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">🔗 Capa</a></td>
+                    <td>03/02/2026 00:00:00</td>
+                    <td>ELIEZER SANTOS SANTANA</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
 
-        <div class="item">
-          <input class="ck" type="checkbox" />
-          <div class="icons">
-            <span class="tri" aria-hidden="true"></span>
-            <span class="days">(2 dias) | (2 dias)</span>
+        <!-- Item 2 -->
+        <div class="item-wrapper">
+          <div class="item">
+            <input class="ck" type="checkbox" onclick="event.stopPropagation()" />
+            <div class="icons">
+              <span class="tri" aria-hidden="true"></span>
+              <span class="days">(2 dias) | (2 dias)</span>
+            </div>
+            <div class="desc">
+              <span class="muted">92172 / 2026 : Relações com Conselho Nacional do Ministério Público - CNMP</span>
+              - ÂNGELO FABIANO FARIAS DA COSTA - Corregedor Nacional, PAULO MARCELO DE SANTANA COSTA - Requerido(a)
+            </div>
           </div>
-          <div class="desc">
-            <span class="muted">92172 / 2026 : Relações com Conselho Nacional do Ministério Público - CNMP</span>
-            - ÂNGELO FABIANO FARIAS DA COSTA - Corregedor Nacional, PAULO MARCELO DE SANTANA COSTA - Requerido(a)
+          <div class="item-details">
+            <div class="details-header">
+              <div class="details-meta">
+                <div class="meta-item">
+                  <span class="label">Número:</span>
+                  <span class="value">92172 / 2026</span>
+                </div>
+                <div class="meta-item">
+                  <span class="label">Atribuído Para:</span>
+                  <span class="value">PAULO MARCELO DE SANTANA COSTA</span>
+                </div>
+                <div class="meta-item">
+                  <span class="label">Classe:</span>
+                  <span class="value">Procedimento de Gestão Administrativa</span>
+                </div>
+                <div class="meta-item">
+                  <span class="label">Assunto:</span>
+                  <span class="value">Relações com Conselho Nacional do Ministério Público - CNMP</span>
+                </div>
+                <div class="meta-item">
+                  <span class="label">Último Movimento:</span>
+                  <span class="value">Encaminhamento a Órgão Interno</span>
+                </div>
+                <div class="meta-item">
+                  <span class="label">Modificado Em:</span>
+                  <span class="value">02/02/2026 14:22:15</span>
+                </div>
+              </div>
+            </div>
+            <div class="history-section">
+              <div class="history-header">
+                <h4>Histórico:</h4>
+                <button class="btn-movimentar" type="button">Movimentar ▶</button>
+              </div>
+              <table class="history-table">
+                <thead>
+                  <tr>
+                    <th>Movimentos</th>
+                    <th>Data/Hora</th>
+                    <th>Autor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a href="#">🔗 Comunicação Interna</a></td>
+                    <td>02/02/2026 14:22:15</td>
+                    <td>ELIEZER SANTOS SANTANA</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">🔗 Autuação</a></td>
+                    <td>02/02/2026 10:30:00</td>
+                    <td>ELIEZER SANTOS SANTANA</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">🔗 Capa</a></td>
+                    <td>02/02/2026 00:00:00</td>
+                    <td>ELIEZER SANTOS SANTANA</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
 
-        <div class="item">
-          <input class="ck" type="checkbox" />
-          <div class="icons">
-            <span class="tri" aria-hidden="true"></span>
-            <span class="days">(218 dias) | (317 dias)</span>
+        <!-- Item 3 - Com tag Reservado -->
+        <div class="item-wrapper">
+          <div class="item">
+            <input class="ck" type="checkbox" onclick="event.stopPropagation()" />
+            <div class="icons">
+              <span class="tri" aria-hidden="true"></span>
+              <span class="days">(218 dias) | (317 dias)</span>
+            </div>
+            <div class="desc">
+              <span class="muted">78322 / 2025 : Visita de Inspeção - Promotoria de Justiça</span>
+              - PAULO MARCELO DE SANTANA COSTA - Subscritor(a), ROBERTO DE ALMEIDA BORGES GOMES - Subscritor(a)
+            </div>
+            <div class="tag reservado-red">Reservado</div>
           </div>
-          <div class="desc">
-            <span class="muted">78322 / 2025 : Visita de Inspeção - Promotoria de Justiça</span>
-            - PAULO MARCELO DE SANTANA COSTA - Subscritor(a), ROBERTO DE ALMEIDA BORGES GOMES - Subscritor(a)
+          <div class="item-details">
+            <div class="details-header">
+              <div class="details-meta">
+                <div class="meta-item">
+                  <span class="label">Número:</span>
+                  <span class="value">78322 / 2025</span>
+                </div>
+                <div class="meta-item">
+                  <span class="label">Atribuído Para:</span>
+                  <span class="value">PAULO MARCELO DE SANTANA COSTA</span>
+                </div>
+                <div class="meta-item">
+                  <span class="label">Classe:</span>
+                  <span class="value">Visita de Inspeção - Promotoria de Justiça</span>
+                </div>
+                <div class="meta-item">
+                  <span class="label">Assunto:</span>
+                  <span class="value">Visita de Inspeção - Promotoria de Justiça</span>
+                </div>
+                <div class="meta-item">
+                  <span class="label">Último Movimento:</span>
+                  <span class="value">Despacho</span>
+                </div>
+                <div class="meta-item">
+                  <span class="label">Modificado Em:</span>
+                  <span class="value">15/06/2025 09:45:12</span>
+                </div>
+              </div>
+            </div>
+            <div class="history-section">
+              <div class="history-header">
+                <h4>Histórico:</h4>
+                <button class="btn-movimentar" type="button">Movimentar ▶</button>
+              </div>
+              <table class="history-table">
+                <thead>
+                  <tr>
+                    <th>Movimentos</th>
+                    <th>Data/Hora</th>
+                    <th>Autor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a href="#">🔗 Despacho</a></td>
+                    <td>15/06/2025 09:45:12</td>
+                    <td>ROBERTO DE ALMEIDA BORGES GOMES</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">🔗 Autuação</a></td>
+                    <td>10/03/2025 14:30:00</td>
+                    <td>PAULO MARCELO DE SANTANA COSTA</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-          <div class="tag">Reservado</div>
         </div>
 
-        <div class="item">
-          <input class="ck" type="checkbox" />
-          <div class="icons">
-            <span class="days">(8 dias) | (19 dias)</span>
+        <!-- Item 4 -->
+        <div class="item-wrapper">
+          <div class="item">
+            <input class="ck" type="checkbox" onclick="event.stopPropagation()" />
+            <div class="icons">
+              <span class="days">(8 dias) | (19 dias)</span>
+            </div>
+            <div class="desc">
+              <span class="muted">91626 / 2026 : Solicitação de Informações</span>
+              - GEORGE SOUZA BRITO - Subscritor(a)
+            </div>
           </div>
-          <div class="desc">
-            <span class="muted">91626 / 2026 : Solicitação de Informações</span>
-            - GEORGE SOUZA BRITO - Subscritor(a)
+          <div class="item-details">
+            <div class="details-header">
+              <div class="details-meta">
+                <div class="meta-item">
+                  <span class="label">Número:</span>
+                  <span class="value">91626 / 2026</span>
+                </div>
+                <div class="meta-item">
+                  <span class="label">Atribuído Para:</span>
+                  <span class="value">GEORGE SOUZA BRITO</span>
+                </div>
+                <div class="meta-item">
+                  <span class="label">Classe:</span>
+                  <span class="value">Solicitação de Informações</span>
+                </div>
+                <div class="meta-item">
+                  <span class="label">Assunto:</span>
+                  <span class="value">Solicitação de Informações</span>
+                </div>
+                <div class="meta-item">
+                  <span class="label">Último Movimento:</span>
+                  <span class="value">Encaminhamento</span>
+                </div>
+                <div class="meta-item">
+                  <span class="label">Modificado Em:</span>
+                  <span class="value">27/01/2026 11:20:45</span>
+                </div>
+              </div>
+            </div>
+            <div class="history-section">
+              <div class="history-header">
+                <h4>Histórico:</h4>
+                <button class="btn-movimentar" type="button">Movimentar ▶</button>
+              </div>
+              <table class="history-table">
+                <thead>
+                  <tr>
+                    <th>Movimentos</th>
+                    <th>Data/Hora</th>
+                    <th>Autor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a href="#">🔗 Encaminhamento</a></td>
+                    <td>27/01/2026 11:20:45</td>
+                    <td>GEORGE SOUZA BRITO</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">🔗 Autuação</a></td>
+                    <td>16/01/2026 08:15:00</td>
+                    <td>GEORGE SOUZA BRITO</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
     </section>
   </div>
+
+  <script>
+    // Toggle expansion on item click
+    document.querySelectorAll('.item-wrapper .item').forEach(item => {
+      item.addEventListener('click', function(e) {
+        // Don't toggle if clicking on checkbox or button
+        if (e.target.closest('.ck') || e.target.closest('.btn-actions')) {
+          return;
+        }
+        const wrapper = this.closest('.item-wrapper');
+        wrapper.classList.toggle('expanded');
+      });
+    });
+  </script>
 </body>
 </html>
